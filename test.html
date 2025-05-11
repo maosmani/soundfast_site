@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SoundFast</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/gsap.min.js"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#2563eb',
+                        dark: '#0f172a',
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                    height: {
+                        screen: ['100vh', '100dvh'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        html {
+            scroll-behavior: smooth;
+        }
+    </style>
+</head>
+<body class="font-sans bg-gray-50 text-gray-900">
+    <!-- Blue Navbar -->
+    <nav class="bg-blue-600 px-4 py-3 shadow-md fixed w-full z-50">
+        <div class="max-w-6xl mx-auto flex justify-between items-center">
+            <!-- Logo on the right -->
+            <div class="flex items-center space-x-2">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11a7 7 0 01-7 7m0 0a7 7 0 01-7-7m7 7v4m0 0H8m4 0h4m-4-8a3 3 0 01-3-3V5a3 3 0 116 0v6a3 3 0 01-3 3z" />
+                </svg>
+                <span class="text-white font-bold text-xl">SoundFast</span>
+            </div>
+            
+            <!-- Navigation links -->
+            <div class="hidden md:flex items-center space-x-6">
+                <a href="#" class="text-white hover:text-blue-200 transition">Home</a>
+                <a href="#" class="text-white hover:text-blue-200 transition">About</a>
+                <a href="#download" class="bg-white text-blue-600 px-4 py-2 rounded-md font-medium hover:bg-blue-50 transition">
+                    Download
+                </a>
+            </div>
+            
+            <!-- Mobile menu button -->
+            <button id="mobile-menu-button" class="md:hidden text-white">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                </svg>
+            </button>
+        </div>
+        
+        <!-- Mobile menu (hidden by default) -->
+        <div id="mobile-menu" class="md:hidden hidden bg-blue-700 px-4 py-2 absolute top-full left-0 right-0 shadow-lg">
+            <a href="#" class="block text-white py-2 hover:bg-blue-600 px-2 rounded transition">Home</a>
+            <a href="#" class="block text-white py-2 hover:bg-blue-600 px-2 rounded transition">About</a>
+            <a href="#download" class="block w-full bg-white text-blue-600 px-4 py-2 rounded-md font-medium mt-2 mb-1 hover:bg-blue-50 transition text-center">
+                Download
+            </a>
+        </div>
+    </nav>
+
+    <!-- Hero Section - Full viewport height -->
+    <section class="min-h-screen px-5 pt-24 pb-10 md:pt-0 flex items-center">
+        <div class="max-w-6xl mx-auto w-full">
+            <div class="flex flex-col md:flex-row items-center gap-6 md:gap-10">
+                <!-- Text content -->
+                <div class="md:w-1/2 order-2 md:order-1 text-center md:text-left">
+                    <h1 class="text-3xl sm:text-4xl md:text-5xl font-bold mb-4 text-gray-900 leading-tight">
+                        Listen To Podcasts, Take Notes, And Export Them—Effortlessly
+                    </h1>
+                    <p class="text-lg text-gray-600 mb-6">
+                        Never let another great idea slip away. Take notes in real time while you listen, and export your notes as Word documents for sharing or saving.
+                    </p>
+                    <div class="flex justify-center md:justify-start">
+                        <a href="#download" class="inline-block bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-lg font-medium transition-all shadow-md hover:shadow-lg">
+                            Get SoundFast Free Today
+                        </a>
+                    </div>
+
+                      <div class="flex justify-center md:justify-start">
+                    <a href="#download" class="inline-block bg-blue-600 hover:bg-blue-700 text-white px-5 py-2.5 sm:px-6 sm:py-3 text-sm sm:text-base rounded-lg font-medium transition-all shadow-md hover:shadow-lg">
+                        Get SoundFast Free Today
+                    </a>
+                </div>
+                </div>
+                
+                <!-- Image -->
+                <div class="md:w-1/2 order-1 md:order-2 w-full max-w-md mx-auto">
+                    <img src="https://images.unsplash.com/photo-1598488035139-bdbb2231ce04?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" 
+                         alt="Person using SoundFast app to take podcast notes" 
+                         class="rounded-lg shadow-xl w-full h-auto object-cover">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Download Section - Full viewport height -->
+    <section id="download" class="min-h-screen bg-gray-100 px-4 py-12 md:py-16 flex items-center">
+        <div class="max-w-6xl mx-auto w-full">
+            <h2 class="text-3xl md:text-4xl font-bold text-center mb-12">Download SoundFast Now</h2>
+            
+            <div class="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+                <!-- Windows Download -->
+                <div class="bg-white p-6 rounded-xl shadow-md hover:shadow-lg transition">
+                    <div class="flex items-center mb-4">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10 text-blue-500 mr-3" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 3v2m6-2v2M9 19v2m6-2v2M5 9H3m2 6H3m18-6h-2m2 6h-2M7 19h10a2 2 0 002-2V7a2 2 0 00-2-2H7a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                        </svg>
+                        <h3 class="text-xl font-bold">Windows</h3>
+                    </div>
+                    <p class="text-gray-600 mb-6">Compatible with Windows 10 and 11. 64-bit version recommended.</p>
+                    <button class="w-full bg-blue-600 hover:bg-blue-700 text-white py-3 rounded-lg font-medium transition flex items-center justify-center">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
+                        </svg>
+                        Download for Windows (64-bit)
+                    </button>
+                    <p class="text-sm text-gray-500 mt-2">Version 1.0.0 • 45 MB</p>
+                </div>
+                
+                <!-- Linux Download -->
+                <div class="bg-white p-6 rounded-xl shadow-md hover:shadow-lg transition">
+                    <div class="flex items-center mb-4">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10 text-orange-500 mr-3" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4" />
+                        </svg>
+                        <h3 class="text-xl font-bold">Linux</h3>
+                    </div>
+                    <p class="text-gray-600 mb-6">Available as .deb and .rpm packages. Supports most modern distributions.</p>
+                    <div class="grid grid-cols-2 gap-3">
+                        <button class="bg-gray-800 hover:bg-gray-900 text-white py-3 rounded-lg font-medium transition flex items-center justify-center text-sm">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 mr-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
+                            </svg>
+                            .deb (Debian/Ubuntu)
+                        </button>
+                        <button class="bg-gray-800 hover:bg-gray-900 text-white py-3 rounded-lg font-medium transition flex items-center justify-center text-sm">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 mr-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
+                            </svg>
+                            .rpm (Fedora/RHEL)
+                        </button>
+                    </div>
+                    <p class="text-sm text-gray-500 mt-2">Version 1.0.0 • 48 MB</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white py-6 px-4">
+        <div class="max-w-6xl mx-auto text-center">
+            <p class="text-gray-400" id="copyrightYear">© 2023 SoundFast. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        document.getElementById('mobile-menu-button').addEventListener('click', function() {
+            const menu = document.getElementById('mobile-menu');
+            menu.classList.toggle('hidden');
+        });
+
+        // GSAP Animations
+        document.addEventListener('DOMContentLoaded', function() {
+            // Animate hero section elements
+            gsap.from('nav', { 
+                duration: 0.8, 
+                y: -50, 
+                opacity: 0, 
+                ease: "power3.out" 
+            });
+            
+            gsap.from('section h1, section p, section a', { 
+                duration: 0.8, 
+                y: 30, 
+                opacity: 0, 
+                stagger: 0.1, 
+                delay: 0.3,
+                ease: "power3.out" 
+            });
+            
+            gsap.from('section img', { 
+                duration: 0.8, 
+                x: 30, 
+                opacity: 0, 
+                delay: 0.5,
+                ease: "power3.out" 
+            });
+            
+            // Animate download section on scroll
+            gsap.utils.toArray('#download > *').forEach(element => {
+                gsap.from(element, {
+                    scrollTrigger: {
+                        trigger: element,
+                        start: "top 80%",
+                        toggleActions: "play none none none"
+                    },
+                    y: 50,
+                    opacity: 0,
+                    duration: 0.8,
+                    ease: "power3.out"
+                });
+            });
+
+            // Update copyright year
+            const baseYear = 2023;
+            const currentYear = new Date().getFullYear();
+            const copyrightElement = document.getElementById('copyrightYear');
+            
+            let yearText;
+            if (currentYear > baseYear) {
+                yearText = `© ${baseYear}–${currentYear}`;
+            } else {
+                yearText = `© ${baseYear}`;
+            }
+            
+            copyrightElement.textContent = `${yearText} SoundFast. All rights reserved.`;
+        });
+    </script>
+</body>
+</html>
