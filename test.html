@@ -52,6 +52,51 @@
             transform: translateY(-3px);
             box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
         }
+
+        /* iPad-specific adjustments */
+        @media (min-width: 768px) and (max-width: 1024px) {
+            .hero-content {
+                padding-left: 2rem;
+                padding-right: 2rem;
+            }
+            .hero-heading {
+                font-size: 2.5rem;
+                line-height: 2.75rem;
+            }
+            .hero-buttons {
+                flex-direction: row;
+                justify-content: flex-start;
+            }
+            .download-section {
+                padding-left: 2rem;
+                padding-right: 2rem;
+            }
+            .download-card {
+                padding: 1.5rem;
+            }
+        }
+
+        /* Simple fade-in animation for hero */
+        .hero-content-inner {
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeInUp 0.8s ease-out forwards;
+            animation-delay: 0.3s;
+        }
+
+        .hero-image {
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeInUp 0.8s ease-out forwards;
+            animation-delay: 0.6s;
+        }
+
+        @keyframes fadeInUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
     </style>
 </head>
 <body class="font-sans bg-gray-50 text-gray-900 antialiased">
@@ -95,37 +140,37 @@
         </div>
     </nav>
 
-    <!-- Hero Section -->
+    <!-- Hero Section with iPad Optimizations -->
     <section class="min-h-screen flex items-center justify-center px-5 py-24 hero-pattern">
         <div class="max-w-6xl mx-auto w-full">
-            <div class="flex flex-col md:flex-row items-center gap-8 md:gap-12">
-                <!-- Text content - Centered -->
-                <div class="md:w-1/2 text-center">
-                    <div class="mb-8">
-                        <h1 class="text-3xl sm:text-4xl md:text-5xl font-bold text-gray-900 leading-tight mb-4">
+            <div class="flex flex-col lg:flex-row items-center gap-8 lg:gap-12">
+                <!-- Text content - Left-aligned on iPad/desktop, centered on mobile -->
+                <div class="lg:w-1/2 hero-content">
+                    <div class="hero-content-inner text-center lg:text-left">
+                        <h1 class="text-3xl sm:text-4xl md:hero-heading lg:text-5xl font-bold text-gray-900 leading-tight mb-4">
                             Listen To Podcasts, <span class="gradient-text">Take Notes</span>, And Export Them—Effortlessly
                         </h1>
-                        <p class="text-lg text-gray-600 max-w-2xl mx-auto">
+                        <p class="text-lg text-gray-600 mb-8 lg:max-w-lg mx-auto lg:mx-0">
                             Never let another great idea slip away. Take notes in real time while you listen, and export your notes as Word documents for sharing or saving.
                         </p>
-                    </div>
-                    
-                    <!-- CTA Buttons -->
-                    <div class="flex flex-col sm:flex-row gap-4 justify-center">
-                        <a href="#download" class="btn-primary bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-lg font-medium flex items-center justify-center">
-                            <i class="fas fa-download mr-3"></i> 
-                            <span>Get SoundFast Free</span>
-                        </a>
-                        <a href="#" class="btn-secondary bg-white hover:bg-gray-50 text-gray-800 border border-gray-200 px-6 py-3 rounded-lg font-medium flex items-center justify-center">
-                            <i class="fas fa-play-circle mr-3 text-blue-600"></i>
-                            <span>See How It Works</span>
-                        </a>
+                        
+                        <!-- CTA Buttons - Left-aligned on iPad/desktop, centered on mobile -->
+                        <div class="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start hero-buttons">
+                            <a href="#download" class="btn-primary bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-lg font-medium flex items-center justify-center lg:justify-start">
+                                <i class="fas fa-download mr-3"></i> 
+                                <span>Get SoundFast Free</span>
+                            </a>
+                            <a href="#" class="btn-secondary bg-white hover:bg-gray-50 text-gray-800 border border-gray-200 px-6 py-3 rounded-lg font-medium flex items-center justify-center lg:justify-start">
+                                <i class="fas fa-play-circle mr-3 text-blue-600"></i>
+                                <span>See How It Works</span>
+                            </a>
+                        </div>
                     </div>
                 </div>
                 
                 <!-- Image -->
-                <div class="md:w-1/2 w-full max-w-md mx-auto mt-10 md:mt-0">
-                    <div class="relative rounded-xl overflow-hidden shadow-xl border-8 border-white">
+                <div class="lg:w-1/2 w-full max-w-md mx-auto mt-10 lg:mt-0 hero-image">
+                    <div class="relative rounded-xl overflow-hidden shadow-2xl border-8 border-white">
                         <img src="https://images.unsplash.com/photo-1598488035139-bdbb2231ce04?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" 
                              alt="Person using SoundFast app to take podcast notes" 
                              class="rounded-lg w-full h-auto object-cover">
@@ -135,8 +180,8 @@
         </div>
     </section>
 
-    <!-- Download Section -->
-    <section id="download" class="min-h-screen bg-gray-100 px-4 py-12 md:py-16 flex items-center">
+    <!-- Download Section with iPad Optimizations -->
+    <section id="download" class="min-h-screen bg-gray-100 px-4 py-12 md:py-16 flex items-center download-section">
         <div class="max-w-6xl mx-auto w-full">
             <h2 class="text-3xl md:text-4xl font-bold text-center mb-12">Download SoundFast Now</h2>
             
@@ -175,7 +220,7 @@
                         </div>
                     </div>
                     <p class="text-gray-600 mb-6">Available as .deb and .rpm packages. Supports most modern distributions.</p>
-                    <div class="grid grid-cols-2 gap-4">
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
                         <button class="btn-primary bg-gray-800 hover:bg-gray-900 text-white py-3 rounded-lg font-medium flex items-center justify-center">
                             <i class="fas fa-download mr-2"></i>
                             .deb Package
