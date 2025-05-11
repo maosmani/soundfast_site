@@ -17,7 +17,7 @@ const DownloadCard = ({ icon, title, version, size, description, downloadLink, p
     </div>
     <div className="p-6 pt-0 text-center flex-grow flex flex-col justify-between">
       <p className="text-muted-foreground mb-6">{description}</p>
-      <a href={downloadLink} className="btn btn-outline mt-auto">
+      <a href={downloadLink} className="btn btn-outline py-4 mt-auto">
         <CloudDownload className="mr-2 h-4 w-4" />
         Download for {platform}
       </a>

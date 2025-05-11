@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from 'react';
 import Link from 'next/link'; // Using Link for internal navigation if sections were separate pages
-import { Menu, X, Soundwave } from 'lucide-react'; // Using Soundwave as a placeholder logo
+import { Menu, X, Waves } from 'lucide-react'; // Using Soundwave as a placeholder logo
 import { cn } from '@/lib/utils';
 
 const Navbar = () => {
